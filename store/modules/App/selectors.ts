@@ -5,3 +5,8 @@ export const getIsThisArchitecturePerfect= createSelector(
   [(state: RootStoreType) => state.app.isThisArchitecturePerfect],
   isThisArchitecturePerfect => isThisArchitecturePerfect
 );
+
+export const getTitle= createSelector(
+  [(state: RootStoreType) => state.app.title],
+  title => title
+);
