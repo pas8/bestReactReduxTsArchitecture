@@ -1,11 +1,16 @@
 import { TypeNames } from './enums';
 import { AppActionTypes, PayloadTypes } from './types';
 
-export const toChangeThemePropertyies = (
+export const toChangeStatusOfExample = (
   payload: PayloadTypes[TypeNames.HANDLE_CHANGE_STATUS_OF_EXAMPLE]
 ): AppActionTypes => ({
   type: TypeNames.HANDLE_CHANGE_STATUS_OF_EXAMPLE,
-  payload
+  payload,
 });
 
-
+export const toChangeTitleOfExample = (
+  payload: PayloadTypes[TypeNames.HANDLE_CHANGE_TITLE_OF_EXAMPLE]
+): AppActionTypes => ({
+  type: TypeNames.HANDLE_CHANGE_TITLE_OF_EXAMPLE,
+  payload,
+});

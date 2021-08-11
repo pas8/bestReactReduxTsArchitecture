@@ -1,17 +1,26 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toChangeThemePropertyies } from '../store/modules/App/actions';
-import { getIsThisArchitecturePerfect } from '../store/modules/App/selectors';
+import { toChangeStatusOfExample } from '../store/modules/App/actions';
+import { operatoToSetExampleTitle } from '../store/modules/App/operations';
+import { getIsThisArchitecturePerfect, getTitle } from '../store/modules/App/selectors';
 
 const Index = () => {
-  const isThisArchitecturePerfect = useSelector(getIsThisArchitecturePerfect);
   const dispatch = useDispatch();
 
+  const title = useSelector(getTitle);
+
+    useEffect(() => {
+    dispatch(operatoToSetExampleTitle());
+  }, []);
   const handleSetExampleStatusIsTrue = () => {
-    dispatch(toChangeThemePropertyies({ isThisArchitecturePerfect: true }));
+    dispatch(toChangeStatusOfExample({ isThisArchitecturePerfect: true }));
   };
   const handleSetExampleStatusIsFalse = () => {
-    dispatch(toChangeThemePropertyies({ isThisArchitecturePerfect: false }));
+    dispatch(toChangeStatusOfExample({ isThisArchitecturePerfect: false }));
   };
+
+  const isThisArchitecturePerfect = useSelector(getIsThisArchitecturePerfect);
+
 
   const containerStyling = {
     width: 'calc(100vw + 2px)',
@@ -51,7 +60,7 @@ const Index = () => {
     <>
       <div style={containerStyling}>
         <div>
-          <h1 style={textStyling}>{'- Is This Architecture Perfect?'}</h1>
+          <h1 style={textStyling}>{title}</h1>
           <h1 style={textStyling}>{`- ${isThisArchitecturePerfect}`.toUpperCase()}</h1>
           <div style={buttonContainerStyling}>
             <button style={{ ...buttonStyling, textTransform: 'uppercase' }} onClick={handleSetExampleStatusIsTrue}>
