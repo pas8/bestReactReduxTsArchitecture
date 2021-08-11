@@ -1,0 +1,8 @@
+export enum TypeNames {
+  HANDLE_CHANGE_STATUS_OF_EXAMPLE = 'HANDLE_CHANGE_STATUS_OF_EXAMPLE',  
+}
+
+
+
+
+
