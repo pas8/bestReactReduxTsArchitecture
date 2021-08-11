@@ -1,7 +1,14 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import StoreLayout from '../layouts/StoreLayout';
+import { ComposeLayouts } from '../layouts/index';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
-export default MyApp
+const _App = ({ Component, pageProps }: AppProps) => {
+  const layouts = [StoreLayout];
+
+  return (
+    <ComposeLayouts layouts={layouts}>
+      <Component {...pageProps} />
+    </ComposeLayouts>
+  );
+};
+export default _App;
